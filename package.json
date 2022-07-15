@@ -1,0 +1,43 @@
+{
+  "name": "bl-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start index.js",
+    "dev": "cross-env NODE_ENV=dev nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^8.0.8",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "log4js": "^6.3.0",
+    "pm2": "^4.5.6",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "require-directory": "^2.1.1",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mscststs/bl-stream.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/mscststs/bl-stream/issues"
+  },
+  "homepage": "https://github.com/mscststs/bl-stream#readme"
+}
