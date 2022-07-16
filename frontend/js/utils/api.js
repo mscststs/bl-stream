@@ -1,4 +1,4 @@
-export default async function(api, params){
+async function sendApi(api, params){
   const res = await fetch("/"+api,{
     method: 'POST',
     headers: {
@@ -7,4 +7,10 @@ export default async function(api, params){
     body: JSON.stringify(params)
   });
   return await res.json();
+}
+
+export default {
+  install: (app, options) => {
+    app.config.globalProperties.$api = sendApi;
+  }
 }

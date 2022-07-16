@@ -1,22 +1,35 @@
 const Koa = require('koa');
 const cors = require('koa2-cors');
+const compress = require('koa-compress')
 const root = require('./router');
 const addons = require('./addons/index.js');
 const bodyParser = require('koa-bodyparser');
-const mount = require('koa-mount');
 const koaStatic = require('koa-static');
 const path = require('path');
+const vueCompiler = require("./middleware/vueCompiler")
 
 
 function createApp(config) {
   const app = new Koa();
 
-  // 前端静态文件
-  app.use(mount("/", koaStatic(path.join(__dirname, '../frontend'))));
+  app.use(compress({
+    threshold: 2048,
+    gzip: {
+      flush: require('zlib').constants.Z_SYNC_FLUSH
+    },
+    deflate: {
+      flush: require('zlib').constants.Z_SYNC_FLUSH,
+    },
+    br: true // disable brotli
+  }))
 
-  if (config.prefix) {
-    root.prefix(config.prefix || ""); // Set Prefix
-  }
+  // Vue SFC 解析
+  app.use(vueCompiler(path.join(__dirname, '../frontend')));
+
+  // 前端静态文件
+  app.use(koaStatic(path.join(__dirname, '../frontend'),{
+    maxage: 100000,
+  }));
 
   app.use(cors({
     maxAge: 66666666,

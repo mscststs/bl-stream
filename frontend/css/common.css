@@ -1,0 +1,102 @@
+/**
+* 通用样式
+**/
+
+/** 结构 **/
+.s-space{
+  padding:20px;
+}
+/** flex 布局 **/
+.flex-column{
+  display:flex;
+  flex-direction:column;
+}
+
+.flex-row{
+  display:flex;
+  flex-direction:row;
+}
+
+.flex-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.flex-none{
+  flex:none;
+}
+
+.flex-auto{
+  flex:auto;
+}
+/** 线条 **/
+.hline{
+  flex:none;
+  width:1px;
+  background-color:#999;
+  margin: 0 5px;
+}
+.vline{
+  flex:none;
+  height:1px;
+  background-color:#999;
+  margin:5px 0;
+}
+.gutter{
+  flex:none;
+  width:20px;
+  height:20px;
+  
+}
+/** 滚动 **/
+.scroll-y{
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.scroll-x{
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+.scroll{
+  overflow-x:auto;
+  overflow-y:auto;
+}
+.hidden{
+  overflow:hidden;
+}
+
+body,html{
+  box-sizing: border-box;
+  width:100%;
+  height:100%;
+  position:relative;
+  overflow:auto;
+  margin:0;
+  padding:0;
+  font-family:PingFangSC-Regular, sans-serif;
+}
+
+.ew-font{
+  font-family: Consolas, Monaco, monospace;
+}
+
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+width: 4px;
+  height:4px;
+background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #666;
+  border-radius:10px;
+}

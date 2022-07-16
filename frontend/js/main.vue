@@ -1,22 +1,31 @@
 <template>
-  <bl-header></bl-header>
+  <BlHeader v-if="isShowHeader"></BlHeader>
   <div class="main">
     {{msg}}
   </div>
 </template>
 
 <script>
+// import BlHeader from './components/bl-header.vue'
+import {defineAsyncComponent} from "/lib/vue.js";
+
 export default {
   components:{
-    "bl-header": i("components/bl-header.vue"),
+    "BlHeader": defineAsyncComponent(() =>
+      import('./components/bl-header.vue')
+    ),
   },
   data() {
     return {
-      msg: 'Hello Vue!'
+      msg: 'Hello Vue!',
+      isShowHeader:false,
     }
   },
   async mounted(){
-    console.log(await $api("api/info"))
+    setTimeout(() => {
+      this.isShowHeader = true;
+    }, 1000);
+    console.log(await this.$api("api/info"))
   },
   methods:{
 
@@ -25,12 +34,10 @@ export default {
 </script>
 
 <style lang="less">
-  html,body{
-    padding: 0;
-    margin: 0;
-    .main{
-      width: 100%;
-      background-color: #999999;
-    }
-  }
+
+.main{
+  width: 100%;
+  background-color: #999999;
+}
+
 </style>
