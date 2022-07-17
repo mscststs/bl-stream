@@ -4,9 +4,9 @@ import {createApp} from "/lib/vue.js";
 
 const app = createApp({
   components: {
-    'Main': Main,
+    Main,
   },
-  template: '<Main></Main>'
+  template: '<Main/>'
 });
 
 app.use(api);
